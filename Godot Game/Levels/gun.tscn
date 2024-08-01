@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5eiolynsvfpp"]
+
+[ext_resource type="Script" path="res://Scripts/gun.gd" id="1_4jxj7"]
+[ext_resource type="Texture2D" uid="uid://dv5lq571c1ets" path="res://Art/gun.png" id="1_uw118"]
+[ext_resource type="Texture2D" uid="uid://bmcyl3kecpi31" path="res://Art/gunfire.png" id="2_46s4n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kauby"]
+atlas = ExtResource("1_uw118")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpwg7"]
+atlas = ExtResource("2_46s4n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d4jd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kauby")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpwg7")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 0.0
+}]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_4jxj7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2d4jd")
+animation = &"idle"
